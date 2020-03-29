@@ -6,24 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>将你的hexo部署至gitee | Tao&#39;s blog</title>
+  <title>Nginx学习（一） | Tao&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="搭建完hexo，感觉访问速度较慢，故想在gitee（码云）上也放一份，以便提升访问体验。 1、安装前准备  gitee账号 前往gitee进入注册 注册地址 注册完成后按照以往的操作，将你的公钥和gitee账号进行绑定">
+  <meta name="description" content="1、 Nginx简介&amp;nbsp;简介传送门  下载地址  反向代理 正向代理：在客户端（浏览器）配置代理服务器，通过代理服务器进行互联网访问。 反向代理：客户端将请求发送给反向代理服务器，由反向代理服务器去选择目标服务器获取数据，数据获取完成后，再返回给客户端。   负载均衡 将原先请求集中到单个服务器上的情况改为请求分发到多个服务器上。   动静分离 为了加快网站的解析速度，将动态页面和静态页面">
 <meta property="og:type" content="article">
-<meta property="og:title" content="将你的hexo部署至gitee">
-<meta property="og:url" content="http://yoursite.com/2020/03/23/%E5%B0%86%E4%BD%A0%E7%9A%84hexo%E9%83%A8%E7%BD%B2%E8%87%B3gitee/index.html">
+<meta property="og:title" content="Nginx学习（一）">
+<meta property="og:url" content="http://yoursite.com/2020/03/29/Nginx%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="Tao&#39;s blog">
-<meta property="og:description" content="搭建完hexo，感觉访问速度较慢，故想在gitee（码云）上也放一份，以便提升访问体验。 1、安装前准备  gitee账号 前往gitee进入注册 注册地址 注册完成后按照以往的操作，将你的公钥和gitee账号进行绑定">
+<meta property="og:description" content="1、 Nginx简介&amp;nbsp;简介传送门  下载地址  反向代理 正向代理：在客户端（浏览器）配置代理服务器，通过代理服务器进行互联网访问。 反向代理：客户端将请求发送给反向代理服务器，由反向代理服务器去选择目标服务器获取数据，数据获取完成后，再返回给客户端。   负载均衡 将原先请求集中到单个服务器上的情况改为请求分发到多个服务器上。   动静分离 为了加快网站的解析速度，将动态页面和静态页面">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/samlltao.github.io/2020/03/23/%E5%B0%86%E4%BD%A0%E7%9A%84hexo%E9%83%A8%E7%BD%B2%E8%87%B3gitee/gitee.jpg">
-<meta property="og:image" content="http://yoursite.com/samlltao.github.io/2020/03/23/%E5%B0%86%E4%BD%A0%E7%9A%84hexo%E9%83%A8%E7%BD%B2%E8%87%B3gitee/giteepages.jpg">
-<meta property="og:image" content="http://yoursite.com/samlltao.github.io/2020/03/23/%E5%B0%86%E4%BD%A0%E7%9A%84hexo%E9%83%A8%E7%BD%B2%E8%87%B3gitee/giteepages2.jpg">
-<meta property="article:published_time" content="2020-03-23T05:13:59.000Z">
-<meta property="article:modified_time" content="2020-03-23T06:36:08.121Z">
+<meta property="og:image" content="http://yoursite.com/samlltao.github.io/2020/03/29/Nginx%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%861.png">
+<meta property="og:image" content="http://yoursite.com/samlltao.github.io/2020/03/29/Nginx%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%862.png">
+<meta property="og:image" content="http://yoursite.com/samlltao.github.io/2020/03/29/Nginx%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%863.png">
+<meta property="article:published_time" content="2020-03-29T05:30:19.000Z">
+<meta property="article:modified_time" content="2020-03-29T10:57:18.118Z">
 <meta property="article:author" content="Tao">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/samlltao.github.io/2020/03/23/%E5%B0%86%E4%BD%A0%E7%9A%84hexo%E9%83%A8%E7%BD%B2%E8%87%B3gitee/gitee.jpg">
+<meta name="twitter:image" content="http://yoursite.com/samlltao.github.io/2020/03/29/Nginx%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%861.png">
   
     <link rel="alternative" href="/atom.xml" title="Tao&#39;s blog" type="application/atom+xml">
   
@@ -147,14 +147,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-将你的hexo部署至gitee" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Nginx学习（一）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      将你的hexo部署至gitee
+      Nginx学习（一）
     </h1>
   
 
@@ -165,51 +165,87 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/samlltao.github.io/2020/03/23/%E5%B0%86%E4%BD%A0%E7%9A%84hexo%E9%83%A8%E7%BD%B2%E8%87%B3gitee/" class="archive-article-date">
-  	<time datetime="2020-03-23T05:13:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
+<a href="/samlltao.github.io/2020/03/29/Nginx%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-03-29T05:30:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>搭建完hexo，感觉访问速度较慢，故想在gitee（码云）上也放一份，以便提升访问体验。</p>
-<p>1、安装前准备</p>
+        <p>1、 Nginx简介&nbsp;<a href="https://baike.baidu.com/item/nginx/3817705?fr=aladdin" target="_blank" rel="noopener">简介传送门</a>  <a href="http://nginx.org/" target="_blank" rel="noopener">下载地址</a></p>
 <ul>
-<li>gitee账号<ul>
-<li>前往gitee进入注册 <a href="https://gitee.com/signup" target="_blank" rel="noopener">注册地址</a></li>
-<li>注册完成后按照以往的操作，将你的公钥和gitee账号进行绑定<br><img src="/samlltao.github.io/2020/03/23/%E5%B0%86%E4%BD%A0%E7%9A%84hexo%E9%83%A8%E7%BD%B2%E8%87%B3gitee/gitee.jpg" alt="alt"><a id="more"></a>  
-
-</li>
+<li>反向代理<ul>
+<li>正向代理：在客户端（浏览器）配置代理服务器，通过代理服务器进行互联网访问。</li>
+<li>反向代理：客户端将请求发送给反向代理服务器，由反向代理服务器去选择目标服务器获取数据，数据获取完成后，再返回给客户端。</li>
 </ul>
 </li>
+<li>负载均衡<ul>
+<li>将原先请求集中到单个服务器上的情况改为请求分发到多个服务器上。</li>
 </ul>
-<p>2、使用gitee创建一个仓库</p>
-<ul>
-<li>注意：gitee建立的路径需要与github博客仓库路径一致.<blockquote>
-<p>如：我的github博客项目地址为：<a href="https://github.com/samlltao/samlltao.github.io" target="_blank" rel="noopener">https://github.com/samlltao/samlltao.github.io</a><br>则，我的gitee博客仓库地址设置为:<a href="https://gitee.com/Peach520/samlltao.github.io" target="_blank" rel="noopener">https://gitee.com/Peach520/samlltao.github.io</a></p>
-</blockquote>
+</li>
+<li>动静分离<ul>
+<li>为了加快网站的解析速度，将动态页面和静态页面由不同的服务器进行解析，加快解析速度，降低原来单个服务器的压力<a id="more"></a>     
+2、Nginx常用的命令</li>
+</ul>
 </li>
 </ul>
-<p>3、本地编译</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">nginx -v</td>
+<td align="left">查看nginx版本</td>
+</tr>
+<tr>
+<td align="left">nginx -s stop</td>
+<td align="left">停止nginx服务</td>
+</tr>
+<tr>
+<td align="left">nginx -c filename</td>
+<td align="left">设置配置文件启动nginx(默认是:/etc/nginx/nginx.conf)</td>
+</tr>
+<tr>
+<td align="left">nginx -s reload</td>
+<td align="left">重新载入Nginx</td>
+</tr>
+</tbody></table>
+<p>3、Nginx的配置文件</p>
 <ul>
-<li><p>在本地的博客项目中，打开主目录下的_config.yml文件，将你的github信息和gitee信息，填入文件(修改成ssh格式，在部署时，可以不用输入密码)。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">    github: git@github.com:samlltao&#x2F;samlltao.github.io.git</span><br><span class="line">    gitee: git@gitee.com:Peach520&#x2F;samlltao.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></li>
-<li><p>修改_config.yml文件下的root参数，如下：将“samlltao.github.io”修改成你的仓库名称，/前面需要添加空格</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root: &#x2F;samlltao.github.io</span><br></pre></td></tr></table></figure></li>
-<li><p>修改主题的_config.yml文件（本人用的yilia主题）,文件前加入root配置的内容</p>
-<blockquote>
-<p>favicon: /samlltao.github.io/assets/img/tao.ico<br>avatar: /samlltao.github.io/assets/img/tao.png</p>
-</blockquote>
+<li>nginx配置文件有三部分<ul>
+<li>全局块<ul>
+<li>从配置文件开始到events块的内容，主要设置一些影响nginx服务器整体运行的配置指令</li>
+<li>比如：worker_processes  1; worker_processes值越大，可以支持的并发处理器也越多</li>
+</ul>
+</li>
+<li>events块<ul>
+<li>主要影响nginx服务器与用户的网络连接</li>
+<li>比如：worker_connections  1024; 支持的最大连接数</li>
+</ul>
+</li>
+<li>http块（http全局块，server块）</li>
+</ul>
 </li>
 </ul>
-<p>4、部署</p>
+<p>4、nginx配置-反向代理</p>
 <ul>
-<li>使用hexo d进行部署</li>
-<li>部属完成后，gitee上面的项目，需要使用gitee pages进行手动更新。（开通Gitee Pages Pro，可以实现自动部署，没钱，只能手动进行部署了）<br><img src="/samlltao.github.io/2020/03/23/%E5%B0%86%E4%BD%A0%E7%9A%84hexo%E9%83%A8%E7%BD%B2%E8%87%B3gitee/giteepages.jpg" alt="alt"></li>
+<li>通过访问本地的8080端口，转到baidu；<br>http块server块中配置如下：<br><img src="/samlltao.github.io/2020/03/29/Nginx%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%861.png" alt="alt"></li>
+<li>通过访问本地的9000端口，访问<a href="http://127.0.0.1:9000/weibo/" target="_blank" rel="noopener">http://127.0.0.1:9000/weibo/</a>跳转至微博；访问<a href="http://127.0.0.1:9000/sohu/" target="_blank" rel="noopener">http://127.0.0.1:9000/sohu/</a>跳转至搜狐<br><img src="/samlltao.github.io/2020/03/29/Nginx%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%862.png" alt="alt"></li>
 </ul>
-<hr>
-<p><img src="/samlltao.github.io/2020/03/23/%E5%B0%86%E4%BD%A0%E7%9A%84hexo%E9%83%A8%E7%BD%B2%E8%87%B3gitee/giteepages2.jpg" alt="alt"></p>
+<p>5、nginx配置-负载均衡</p>
+<ul>
+<li>http块加入如下内容：<br><img src="/samlltao.github.io/2020/03/29/Nginx%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%863.png" alt="alt"></li>
+</ul>
+<p>nginx分配服务器策略</p>
+<ul>
+<li>轮询（默认）</li>
+<li>weight 权重，权重越高，分配客户端越多</li>
+<li>ip_hash 让客户端固定的访问一个后端服务器，可以解决session问题</li>
+</ul>
 
       
 
@@ -223,7 +259,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
         		</li>
       		
 		</ul>
@@ -279,7 +315,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/23/%E5%B0%86%E4%BD%A0%E7%9A%84hexo%E9%83%A8%E7%BD%B2%E8%87%B3gitee/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/29/Nginx%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -293,18 +329,9 @@
   
 <nav id="article-nav">
   
-    <a href="/samlltao.github.io/2020/03/29/Nginx%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Nginx学习（一）
-        
-      </div>
-    </a>
   
-  
-    <a href="/samlltao.github.io/2020/03/22/win%E4%B8%8B%E5%AE%89%E8%A3%85hexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">win下安装hexo</div>
+    <a href="/samlltao.github.io/2020/03/23/%E5%B0%86%E4%BD%A0%E7%9A%84hexo%E9%83%A8%E7%BD%B2%E8%87%B3gitee/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">将你的hexo部署至gitee</div>
       <i class="icon-circle-right"></i>
     </a>
   
