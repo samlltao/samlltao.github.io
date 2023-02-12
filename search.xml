@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>使用idea打jar包</title>
+      <link href="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/"/>
+      <url>/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<!-- https://www.cnblogs.com/mkl34367803/p/10566827.html https://blog.csdn.net/weixin_40025107/article/details/125134913 --><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="创建一个main方法"><a href="#创建一个main方法" class="headerlink" title="创建一个main方法"></a>创建一个main方法</h3><img src="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/helloTao.png" class="" title="创建一个main方法"><h3 id="点击idea的File菜单，选择Project-Structure"><a href="#点击idea的File菜单，选择Project-Structure" class="headerlink" title="点击idea的File菜单，选择Project Structure"></a>点击idea的<code>File</code>菜单，选择<code>Project Structure</code></h3><img src="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/projectStructure.png" class="" title="选择Project Structure"><h3 id="点击Artifacts，选择-号，选择JAR"><a href="#点击Artifacts，选择-号，选择JAR" class="headerlink" title="点击Artifacts，选择+号，选择JAR"></a>点击<code>Artifacts</code>，选择<code>+</code>号，选择<code>JAR</code></h3><img src="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/jar.png" class="" title="Artifacts"><h3 id="选择需要运行程序MAIN方法，点击OK，"><a href="#选择需要运行程序MAIN方法，点击OK，" class="headerlink" title="选择需要运行程序MAIN方法，点击OK，"></a>选择需要运行程序MAIN方法，点击OK，</h3><img src="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/main01.png" class="" title="选择Main方法"><h3 id="点击idea的Build菜单-选择Build-Artifacts构建jar包"><a href="#点击idea的Build菜单-选择Build-Artifacts构建jar包" class="headerlink" title="点击idea的Build菜单,选择Build Artifacts构建jar包"></a>点击idea的<code>Build</code>菜单,选择<code>Build Artifacts</code>构建jar包</h3><img src="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/build.png" class="" title="Build Artifacts"><img src="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/%E9%80%89%E6%8B%A9build.png" class="" title="点击build"><h3 id="执行生成的jar包-进行测试"><a href="#执行生成的jar包-进行测试" class="headerlink" title="执行生成的jar包,进行测试"></a>执行生成的jar包,进行测试</h3><img src="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/javaJar.png" class="" title="执行生成的jar包,进行测试"><h3 id="运行指定的-main-方法"><a href="#运行指定的-main-方法" class="headerlink" title="运行指定的 main 方法"></a>运行指定的 main 方法</h3><p>当jar包中存在多个main方法，需要运行指定的main方法</p><h3 id="添加一个新的main方法，点击idea的Build菜单-选择Build-Artifacts构建jar包"><a href="#添加一个新的main方法，点击idea的Build菜单-选择Build-Artifacts构建jar包" class="headerlink" title="添加一个新的main方法，点击idea的Build菜单,选择Build Artifacts构建jar包"></a>添加一个新的main方法，点击idea的<code>Build</code>菜单,选择<code>Build Artifacts</code>构建jar包</h3><img src="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/helloTao2.png" class="" title="添加一个新的main方法"><h3 id="运行指定的main方法"><a href="#运行指定的main方法" class="headerlink" title="运行指定的main方法"></a>运行指定的main方法</h3><blockquote><p>java -cp 绝对路径1.jar 全限定类名(此类有main方法)</p></blockquote><img src="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/javaCp.png" class="" title="运行指定的main方法"><h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><ol><li>在中途出现了报错<code>Exception in thread &quot;main&quot; java.lang.SecurityException: Prohibited package name: java</code>,翻译：为线程“主”中的异常java.lang.SecurityException：禁止的包名称：java。查看自己包名的命名是<code>java</code>,不允许使用，改完命令就可以正常运行了。<br>修改前：<img src="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/packNameJava.png" class="" title="修改前包名">修改后：<img src="/2023/02/06/%E6%89%A7%E8%A1%8Cjar%E5%8C%85%E4%B8%AD%E7%9A%84main%E6%96%B9%E6%B3%95/packNameTao.png" class="" title="修改后包名"></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> java,Intellij idea </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo常用命令</title>
       <link href="/2023/02/04/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
       <url>/2023/02/04/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
