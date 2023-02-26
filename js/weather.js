@@ -1,8 +1,8 @@
 WIDGET = {
   "CONFIG": {
     "modules": "01234",
-    "background": "1",
-    "tmpColor": "FFFFFF",
+    "background": "5",
+    "tmpColor": "FF9900",
     "tmpSize": "16",
     "cityColor": "FFFFFF",
     "citySize": "16",
@@ -10,13 +10,13 @@ WIDGET = {
     "aqiSize": "16",
     "weatherIconSize": "24",
     "alertIconSize": "18",
-    "padding": "8px 8px 8px 8px",
+    "padding": "10px 10px 10px 10px",
     "shadow": "0",
     "language": "auto",
-    "borderRadius": "8",
+    "borderRadius": "5",
     "fixed": "false",
-    "vertical": "top",
-    "horizontal": "right",
-    "key": "74417ef3b9c748f5bcb2046431450a46"
+    "vertical": "center",
+    "horizontal": "center",
+    "key": "41e2ac3e7b614218a3c380662afa4e28"
   }
 }
